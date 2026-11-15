@@ -14,6 +14,7 @@ def main():
     print("8. Porcentaje")
     print("9. Valor absoluto")
     print("10. Factorial")
+    print("11. Promedio")
     opcion = input("Elige una opción: ")
 
     try:
@@ -54,6 +55,9 @@ def main():
         elif opcion == "10":
             n = float(input("Entero no negativo: "))
             print("Resultado:", op.factorial(n))
+        elif opcion == "11":
+            numeros = [float(x) for x in input("Números separados por espacios: ").split()]
+            print("Resultado:", op.promedio(numeros))
         else:
             print("Opción no válida.")
     except ValueError as error:
