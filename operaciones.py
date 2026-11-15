@@ -22,3 +22,7 @@ def potencia(base, exponente):
     if base == 0 and exponente < 0:
         raise ValueError("0 elevado a un exponente negativo no está definido.")
     return base ** exponente
+
+
+def modulo(a, b):
+    return a % b

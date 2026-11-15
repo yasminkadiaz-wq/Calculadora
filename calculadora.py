@@ -9,6 +9,7 @@ def main():
     print("3. Multiplicación")
     print("4. División")
     print("5. Potencia")
+    print("6. Módulo")
     opcion = input("Elige una opción: ")
 
     try:
@@ -32,6 +33,10 @@ def main():
             base = float(input("Base: "))
             exponente = float(input("Exponente: "))
             print("Resultado:", op.potencia(base, exponente))
+        elif opcion == "6":
+            a = float(input("Primer número: "))
+            b = float(input("Segundo número: "))
+            print("Resultado:", op.modulo(a, b))
         else:
             print("Opción no válida.")
     except ValueError as error:
