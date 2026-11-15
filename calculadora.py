@@ -12,6 +12,7 @@ def main():
     print("6. Módulo")
     print("7. Raíz cuadrada")
     print("8. Porcentaje")
+    print("9. Valor absoluto")
     opcion = input("Elige una opción: ")
 
     try:
@@ -46,6 +47,9 @@ def main():
             p = float(input("Porcentaje: "))
             c = float(input("Cantidad: "))
             print("Resultado:", op.porcentaje(p, c))
+        elif opcion == "9":
+            n = float(input("Número: "))
+            print("Resultado:", op.valor_absoluto(n))
         else:
             print("Opción no válida.")
     except ValueError as error:
