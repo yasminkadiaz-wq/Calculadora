@@ -16,3 +16,9 @@ def multiplicacion(a, b):
 
 def division(a, b):
     return a / b
+
+
+def potencia(base, exponente):
+    if base == 0 and exponente < 0:
+        raise ValueError("0 elevado a un exponente negativo no está definido.")
+    return base ** exponente
