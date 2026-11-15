@@ -52,3 +52,10 @@ def promedio(numeros):
     if len(numeros) == 0:
         raise ValueError("Debes ingresar al menos un número.")
     return sum(numeros) / len(numeros)
+
+
+def redondeo(numero, decimales):
+    if decimales != int(decimales) or decimales < 0:
+        raise ValueError("Los decimales deben ser un entero no negativo.")
+    return round(numero, int(decimales))
+

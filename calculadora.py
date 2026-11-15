@@ -15,6 +15,7 @@ def main():
     print("9. Valor absoluto")
     print("10. Factorial")
     print("11. Promedio")
+    print("12. Redondeo")
     opcion = input("Elige una opción: ")
 
     try:
@@ -58,6 +59,10 @@ def main():
         elif opcion == "11":
             numeros = [float(x) for x in input("Números separados por espacios: ").split()]
             print("Resultado:", op.promedio(numeros))
+        elif opcion == "12":
+            n = float(input("Número: "))
+            d = float(input("Cantidad de decimales: "))
+            print("Resultado:", op.redondeo(n, d))
         else:
             print("Opción no válida.")
     except ValueError as error:
