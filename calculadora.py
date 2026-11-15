@@ -10,6 +10,7 @@ def main():
     print("4. División")
     print("5. Potencia")
     print("6. Módulo")
+    print("7. Raíz cuadrada")
     opcion = input("Elige una opción: ")
 
     try:
@@ -37,6 +38,9 @@ def main():
             a = float(input("Primer número: "))
             b = float(input("Segundo número: "))
             print("Resultado:", op.modulo(a, b))
+        elif opcion == "7":
+            n = float(input("Número: "))
+            print("Resultado:", op.raiz_cuadrada(n))
         else:
             print("Opción no válida.")
     except ValueError as error:
