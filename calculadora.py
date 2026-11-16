@@ -31,7 +31,7 @@ def mostrar_menu():
     print(" 4. División         11. Promedio")
     print(" 5. Potencia         12. Redondeo")
     print(" 6. Módulo           13. Ver historial")
-    print(" 7. Raíz cuadrada")
+    print(" 7. Raíz cuadrada    14. Limpiar historial")
     print("  ")
     print(" 0. Salir")
     print("===================================")
@@ -103,6 +103,9 @@ def main():
                     print("El historial está vacío.")
                 for i, linea in enumerate(historial, 1):
                     print(f"{i}. {linea}")
+            elif opcion == "14":
+                historial.clear()
+                print("Historial borrado.")
             else:
                     print("Opción no válida.")
         except ValueError as error:
