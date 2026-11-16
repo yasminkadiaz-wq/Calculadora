@@ -25,14 +25,24 @@ def leer_lista(mensaje):
 
 def mostrar_menu():
     print("\n=========== CALCULADORA ===========")
-    print(" 1. Suma             7. Raíz cuadrada")
-    print(" 2. Resta            8. Porcentaje")
-    print(" 3. Multiplicación   9. Valor absoluto")
-    print(" 4. División        10. Factorial")
-    print(" 5. Potencia        11. Promedio")
-    print(" 6. Módulo          12. Redondeo")
+    print(" 1. Suma              8. Porcentaje")
+    print(" 2. Resta             9. Valor absoluto")
+    print(" 3. Multiplicación   10. Factorial")
+    print(" 4. División         11. Promedio")
+    print(" 5. Potencia         12. Redondeo")
+    print(" 6. Módulo           13. Ver historial")
+    print(" 7. Raíz cuadrada")
+    print("  ")
     print(" 0. Salir")
     print("===================================")
+
+
+historial = []
+
+
+def registrar(descripcion, resultado):
+    print("Resultado:", resultado)
+    historial.append(f"{descripcion} = {resultado}")
 
 
 def main():
@@ -47,47 +57,52 @@ def main():
             if opcion == "1":
                 a = leer_numero("Primer número: ")
                 b = leer_numero("Segundo número: ")
-                print("Resultado:", op.suma(a, b))
+                registrar(f"{a:g} + {b:g}", op.suma(a, b))
             elif opcion == "2":
                 a = leer_numero("Primer número: ")
                 b = leer_numero("Segundo número: ")
-                print("Resultado:", op.resta(a, b))
+                registrar(f"{a:g} - {b:g}", op.resta(a, b))
             elif opcion == "3":
                 a = leer_numero("Primer número: ")
                 b = leer_numero("Segundo número: ")
-                print("Resultado:", op.multiplicacion(a, b))
+                registrar(f"{a:g} * {b:g}", op.multiplicacion(a, b))
             elif opcion == "4":
                 a = leer_numero("Primer número: ")
                 b = leer_numero("Segundo número: ")
-                print("Resultado:", op.division(a, b))
+                registrar(f"{a:g} / {b:g}", op.division(a, b))
             elif opcion == "5":
                 base = leer_numero("Base: ")
                 exponente = leer_numero("Exponente: ")
-                print("Resultado:", op.potencia(base, exponente))
+                registrar(f"{base:g} ^ {exponente:g}", op.potencia(base, exponente))
             elif opcion == "6":
                 a = leer_numero("Primer número: ")
                 b = leer_numero("Segundo número: ")
-                print("Resultado:", op.modulo(a, b))
+                registrar(f"{a:g} % {b:g}", op.modulo(a, b))
             elif opcion == "7":
                 n = leer_numero("Número: ")
-                print("Resultado:", op.raiz_cuadrada(n))
+                registrar(f"raíz({n:g})", op.raiz_cuadrada(n))
             elif opcion == "8":
                 p = leer_numero("Porcentaje: ")
                 c = leer_numero("Cantidad: ")
-                print("Resultado:", op.porcentaje(p, c))
+                registrar(f"{p:g}% de {c:g}", op.porcentaje(p, c))
             elif opcion == "9":
                 n = leer_numero("Número: ")
-                print("Resultado:", op.valor_absoluto(n))
+                registrar(f"|{n:g}|", op.valor_absoluto(n))
             elif opcion == "10":
                 n = leer_numero("Entero no negativo: ")
-                print("Resultado:", op.factorial(n))
+                registrar(f"{n:g}!", op.factorial(n))
             elif opcion == "11":
                 numeros = leer_lista("Números separados por espacios: ")
-                print("Resultado:", op.promedio(numeros))
+                registrar(f"promedio({', '.join(f'{x:g}' for x in numeros)})", op.promedio(numeros))
             elif opcion == "12":
                 n = leer_numero("Número: ")
                 d = leer_numero("Cantidad de decimales: ")
-                print("Resultado:", op.redondeo(n, d))
+                registrar(f"redondeo({n:g}, {d:g})", op.redondeo(n, d))
+            elif opcion == "13":
+                if not historial:
+                    print("El historial está vacío.")
+                for i, linea in enumerate(historial, 1):
+                    print(f"{i}. {linea}")
             else:
                     print("Opción no válida.")
         except ValueError as error:
