@@ -6,7 +6,7 @@ def leer_numero(mensaje):
     """Pide un número hasta que la entrada sea válida."""
     while True:
         try:
-            return leer_numero(mensaje).replace(",", ".")
+            return float(input(mensaje).replace(",", "."))
         except ValueError:
             print("  Entrada no válida. Ingresa un número.")
 
