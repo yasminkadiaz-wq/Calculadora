@@ -2,6 +2,27 @@
 import operaciones as op
 
 
+def leer_numero(mensaje):
+    """Pide un número hasta que la entrada sea válida."""
+    while True:
+        try:
+            return leer_numero(mensaje).replace(",", ".")
+        except ValueError:
+            print("  Entrada no válida. Ingresa un número.")
+
+
+def leer_lista(mensaje):
+    """Pide varios números separados por espacios."""
+    while True:
+        try:
+            numeros = [float(x.replace(",", ".")) for x in input(mensaje).split()]
+            if numeros:
+                return numeros
+            print("  Ingresa al menos un número.")
+        except ValueError:
+            print("  Entrada no válida. Usa solo números separados por espacios.")
+
+
 def main():
     print("=== CALCULADORA ===")
     print("1. Suma")
@@ -20,48 +41,48 @@ def main():
 
     try:
         if opcion == "1":
-            a = float(input("Primer número: "))
-            b = float(input("Segundo número: "))
+            a = leer_numero("Primer número: ")
+            b = leer_numero("Segundo número: ")
             print("Resultado:", op.suma(a, b))
         elif opcion == "2":
-            a = float(input("Primer número: "))
-            b = float(input("Segundo número: "))
+            a = leer_numero("Primer número: ")
+            b = leer_numero("Segundo número: ")
             print("Resultado:", op.resta(a, b))
         elif opcion == "3":
-            a = float(input("Primer número: "))
-            b = float(input("Segundo número: "))
+            a = leer_numero("Primer número: ")
+            b = leer_numero("Segundo número: ")
             print("Resultado:", op.multiplicacion(a, b))
         elif opcion == "4":
-            a = float(input("Primer número: "))
-            b = float(input("Segundo número: "))
+            a = leer_numero("Primer número: ")
+            b = leer_numero("Segundo número: ")
             print("Resultado:", op.division(a, b))
         elif opcion == "5":   # antes del else
-            base = float(input("Base: "))
-            exponente = float(input("Exponente: "))
+            base = leer_numero("Base: ")
+            exponente = leer_numero("Exponente: ")
             print("Resultado:", op.potencia(base, exponente))
         elif opcion == "6":
-            a = float(input("Primer número: "))
-            b = float(input("Segundo número: "))
+            a = leer_numero("Primer número: ")
+            b = leer_numero("Segundo número: ")
             print("Resultado:", op.modulo(a, b))
         elif opcion == "7":
-            n = float(input("Número: "))
+            n = leer_numero("Número: ")
             print("Resultado:", op.raiz_cuadrada(n))
         elif opcion == "8":
-            p = float(input("Porcentaje: "))
-            c = float(input("Cantidad: "))
+            p = leer_numero("Porcentaje: ")
+            c = leer_numero("Cantidad: ")
             print("Resultado:", op.porcentaje(p, c))
         elif opcion == "9":
-            n = float(input("Número: "))
+            n = leer_numero("Número: ")
             print("Resultado:", op.valor_absoluto(n))
         elif opcion == "10":
-            n = float(input("Entero no negativo: "))
+            n = leer_numero("Entero no negativo: ")
             print("Resultado:", op.factorial(n))
         elif opcion == "11":
-            numeros = [float(x) for x in input("Números separados por espacios: ").split()]
+            numeros = leer_lista("Números separados por espacios: ")
             print("Resultado:", op.promedio(numeros))
         elif opcion == "12":
-            n = float(input("Número: "))
-            d = float(input("Cantidad de decimales: "))
+            n = leer_numero("Número: ")
+            d = leer_numero("Cantidad de decimales: ")
             print("Resultado:", op.redondeo(n, d))
         else:
             print("Opción no válida.")
