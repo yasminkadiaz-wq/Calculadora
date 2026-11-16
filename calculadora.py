@@ -23,21 +23,21 @@ def leer_lista(mensaje):
             print("  Entrada no válida. Usa solo números separados por espacios.")
 
 
+def mostrar_menu():
+    print("\n=========== CALCULADORA ===========")
+    print(" 1. Suma             7. Raíz cuadrada")
+    print(" 2. Resta            8. Porcentaje")
+    print(" 3. Multiplicación   9. Valor absoluto")
+    print(" 4. División        10. Factorial")
+    print(" 5. Potencia        11. Promedio")
+    print(" 6. Módulo          12. Redondeo")
+    print(" 0. Salir")
+    print("===================================")
+
+
 def main():
-    print("=== CALCULADORA ===")
-    print("1. Suma")
-    print("2. Resta")
-    print("3. Multiplicación")
-    print("4. División")
-    print("5. Potencia")
-    print("6. Módulo")
-    print("7. Raíz cuadrada")
-    print("8. Porcentaje")
-    print("9. Valor absoluto")
-    print("10. Factorial")
-    print("11. Promedio")
-    print("12. Redondeo")
-    opcion = input("Elige una opción: ")
+    mostrar_menu()
+    opcion = input("Elige una opción: ").strip()
 
     try:
         if opcion == "1":
@@ -56,7 +56,7 @@ def main():
             a = leer_numero("Primer número: ")
             b = leer_numero("Segundo número: ")
             print("Resultado:", op.division(a, b))
-        elif opcion == "5":   # antes del else
+        elif opcion == "5":
             base = leer_numero("Base: ")
             exponente = leer_numero("Exponente: ")
             print("Resultado:", op.potencia(base, exponente))
@@ -84,6 +84,8 @@ def main():
             n = leer_numero("Número: ")
             d = leer_numero("Cantidad de decimales: ")
             print("Resultado:", op.redondeo(n, d))
+        elif opcion == "0":
+            print("Hasta luego...")
         else:
             print("Opción no válida.")
     except ValueError as error:
