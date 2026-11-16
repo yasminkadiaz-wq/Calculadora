@@ -15,6 +15,8 @@ def multiplicacion(a, b):
 
 
 def division(a, b):
+    if b == 0:
+        raise ValueError("No se puede dividir entre cero.")
     return a / b
 
 
@@ -25,6 +27,8 @@ def potencia(base, exponente):
 
 
 def modulo(a, b):
+    if b == 0:
+        raise ValueError("El divisor del módulo no puede ser cero.")
     return a % b
 
 
